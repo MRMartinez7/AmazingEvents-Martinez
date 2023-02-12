@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;   
+}
+nav{
+    background-color: black;
+}
+div col-1 {
+    align-items: center;
+}
+.subtitle{
+    color: white;
+    background-color: beige;
+}
+footer a img{
+    padding-left: 10px;
+    
+}
+main{
+    min-height: 80vh;
+}
