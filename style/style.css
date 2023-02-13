@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     align-items: center;   
+    
 }
 nav{
     background-color: black;
@@ -20,4 +21,21 @@ footer a img{
 }
 main{
     min-height: 80vh;
+}.f-container{
+    background: rgb(13,202,240);
+background: linear-gradient(234deg, rgba(13,202,240,1) 0%, rgba(253,187,45,1) 100%);
+}
+.card{
+    border-radius: 3px;
+}
+.card img{
+    width: 250px;
+    height: 150px;
+    object-fit: contain;
+}
+@media screen and (max-width: 350px) {
+     .card img{
+        max-width:150px ;
+     }
+    
 }
