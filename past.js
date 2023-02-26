@@ -452,25 +452,28 @@ const listEvents = {
 
 function createCards(arraydata) {
     let cards = ''
-    for (const newEvent of arraydata) {
-        cards += `<div class="card" style="width: 18rem;">
-        <img src="${newEvent.image}"..." height="150">
+    for (const pastEvents of arraydata) {
+        let currentDate = new Date(listEvents.currentDate);
+        let eventDate = new Date(pastEvents.date);
+        if (eventDate < currentDate) {
+            cards += `<div class="card" style="width: 18rem;">
+        <img src="${pastEvents.image}"..." height="150">
         <div class="card-body">
-          <h5 class="card-title text-center">${newEvent.name}</h5>
-          <p class="card-text">${newEvent.description}</p>
+          <h5 class="card-title text-center">${pastEvents.name}</h5>
+          <p class="card-text">${pastEvents.description}</p>
           <div class="row">
-            <p class="col text-center my-0">price:$${newEvent.price}</p>
+            <p class="col text-center my-0">price:$${pastEvents.price}</p>
             <a href="#" class="btn btn-secondary col">Buy</a>
           </div>
         </div>
       </div>
     `  }
-
+    }
     return cards
 }
 
 let elementscard = createCards(listEvents.events)
 
-const cardContainer = document.getElementById("new-cards")
+const cardContainer = document.getElementById("past-cards")
 
 cardContainer.innerHTML = elementscard
