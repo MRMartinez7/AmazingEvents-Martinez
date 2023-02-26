@@ -463,7 +463,7 @@ function createCards(arraydata) {
           <p class="card-text">${pastEvents.description}</p>
           <div class="row">
             <p class="col text-center my-0">price:$${pastEvents.price}</p>
-            <a href="#" class="btn btn-secondary col">Buy</a>
+            <a href="./details.html" class="btn btn-secondary col">More Info</a>
           </div>
         </div>
       </div>
