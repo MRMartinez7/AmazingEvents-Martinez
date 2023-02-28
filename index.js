@@ -474,3 +474,8 @@ let elementscard = createCards(listEvents.events)
 const cardContainer = document.getElementById("new-cards")
 
 cardContainer.innerHTML = elementscard
+
+
+
+let categories = listEvents.events.filter(category => category.length);
+console.log("estas son las cagorias:", categories)
