@@ -476,6 +476,21 @@ const cardContainer = document.getElementById("new-cards")
 cardContainer.innerHTML = elementscard
 
 
+function createCategory(arraydata) {
+    let categories = ''
+    arraydata.forEach(eventcategory => {
+        if (!categories.includes(eventcategory.category)) {
+            categories += `<div class= "col-6 col-md-4 col-lg-2 col-xl-2">
+            <label for="category1">
+              <input type="checkbox" name="category" id="category1" value:"${eventcategory.category}" class="mx1">${eventcategory.category}</label>
+          </div>`
+        }
+        })
+        return categories
+    }
+let categoriesSeccion =  createCategory(listEvents.events)
+const categoryContainer = document.getElementById("container-category")
+categoryContainer.innerHTML = categoriesSeccion 
 
-let categories = listEvents.events.filter(category => category.length);
-console.log("estas son las cagorias:", categories)
+
+addEventListener(change)
