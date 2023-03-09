@@ -490,13 +490,13 @@ cardContainer.innerHTML = elementscard
 function createCategory(arraydata) {
   let categories = ''
   arraydata.forEach(eventcategory => {
-    if (!categories.includes(eventcategory.category)) {
-      categories += `<div class= "col-6 col-md-4 col-lg-2 col-xl-2">
-          <label for="category1">
-            <input type="checkbox" name="category" id="myCheck" value:"${eventcategory.category}" class="mx1">
+      if (!categories.includes(eventcategory.category)) {
+          categories += `<div class= "col-6 col-md-4 col-lg-2 col-xl-2">
+          <label for="${eventcategory.category}">
+            <input type="checkbox" name="${eventcategory.category}" id="${eventcategory.category}" value:"${eventcategory.category}" class="mx1">
             <span>${eventcategory.category}</span></label>
         </div>`
-    }
+      }
   })
   return categories
 }
