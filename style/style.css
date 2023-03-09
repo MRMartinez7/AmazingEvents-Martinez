@@ -5,6 +5,9 @@
     align-items: center;   
     
 }
+main{
+    background-color: bisque;
+}
 nav{
     background-color: black;
 }
@@ -20,6 +23,8 @@ footer a img{
     
 }
 main{
+    display: flex;
+    justify-content: center;
     min-height: 80vh;
 }.f-container{
     background: rgb(13,202,240);
@@ -38,4 +43,52 @@ background: linear-gradient(234deg, rgba(13,202,240,1) 0%, rgba(253,187,45,1) 10
         max-width:150px ;
      }
     
+}
+#main-detail{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#cards-details{
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color: white;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+#img-noencontrado1{
+    width: 50%;
+}
+#img-noencontrado2{
+    width: 100%;
+}
+#img-noencontrado3{
+    width: 100%;
+}
+#new-cards {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+#past-cards {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+#upcoming-cards {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.card{
+    margin-bottom: 5px;
+    height: 405px;
+    border: solid #ffd70057 8px;    
+    padding-bottom: 10px;
+    padding-top: 15px;
 }

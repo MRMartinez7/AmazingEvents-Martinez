@@ -449,44 +449,77 @@ const listEvents = {
     }
   ]
 }
+const data = listEvents.events
+const dateEvents = listEvents.currentDate
+
+const uncomingEvents = data.filter((date) => date.date >= dateEvents)
+console.log(uncomingEvents);
 
 function createCards(arraydata) {
   let cards = ''
-  for (const eventsInf of arraydata) {
-    cards += `<div class="col-12 col-sm-6 col-md-4">
-    <img src="${eventsInf.image}" alt="${eventsInf.image}" width="250" height="150">
+  if (arraydata.length != 0) {
+    for (const newEvent of arraydata) {
+      cards += `<div class="card my=2 mx=2" style="width: 18rem;">
+      <img src="${newEvent.image}"..." height="150">
+      <div class="card-body">
+        <h5 class="card-title text-center">${newEvent.name}</h5>
+        <p class="card-text">${newEvent.description}</p>
+        <div class="row">
+          <p class="col text-center my-0">price:$${newEvent.price}</p>
+          <a href="./details.html?id=${newEvent._id}" class="btn btn-secondary col">More Info</a>
+        </div>
+      </div>
     </div>
-    <div class="col-12 col-sm-6 col-md-8">
-    <h3>Name: ${eventsInf.name}</h3>
-    <p>date: ${eventsInf.date}</p>
-    <p>${eventsInf.description}</p>
-    <p>category: ${eventsInf.category}</p>
-    <p>capacity: ${eventsInf.capacity}</p>
-    <p>assistance for estimate: ${eventsInf.estimate}</p>
-    <p>price: ${eventsInf.price}</p>
-    </div>
-    `
+  `  }
+    return cards
   }
-  return cards
+  else return '<img src="./assets/noEncontrado.png" alt="" id="img-noencontrado3">'
+
 }
 
-let elementscard = createCards(listEvents.events)
+let elementscard = createCards(uncomingEvents)
 
-const cardContainer = document.getElementById("details")
+const cardContainer = document.getElementById("upcoming-cards")
 
 cardContainer.innerHTML = elementscard
 
 
-// `<div class="col-12 col-sm-6 col-md-4">
-// <img src="${x.image}" alt="${x.image}" width="250" height="150">
-// </div>
-// <div class="col-12 col-sm-6 col-md-8">
-// <h3>Name: ${x.name}</h3>
-// <p>date: ${x.date}</p>
-// <p>${x.description}</p>
-// <p>category: ${x.category}</p>
-// <p>capacity: ${x.capacity}</p>
-// <p>assistance for estimate: ${x.estimate}</p>
-// <p>price: ${x.price}</p>
-// </div>
-// `
+
+// Category
+
+function createCategory(arraydata) {
+  let categories = ''
+  arraydata.forEach(eventcategory => {
+    if (!categories.includes(eventcategory.category)) {
+      categories += `<div class= "col-6 col-md-4 col-lg-2 col-xl-2">
+          <label for="category1">
+            <input type="checkbox" name="category" id="myCheck" value:"${eventcategory.category}" class="mx1">
+            <span>${eventcategory.category}</span></label>
+        </div>`
+    }
+  })
+  return categories
+}
+let categoriesSeccion = createCategory(data)
+const categoryContainer = document.getElementById("container-category")
+categoryContainer.innerHTML = categoriesSeccion
+
+// const arrayCategory = listEvents.events.filter(x => x)
+// console.log(arrayCategory)
+
+// Search
+
+const mySearch = document.getElementById("my-Search")
+mySearch.addEventListener("input", () => {
+  let arrayFilter = filterEvents(uncomingEvents, mySearch.value)
+
+  cardContainer.innerHTML = createCards(arrayFilter)
+
+  // console.log(createCards(arrayFilter));
+})
+
+function filterEvents(arraydata, dataFilter) {
+  let eventFilters = arraydata.filter((event) => event.name.toUpperCase().includes(dataFilter.toUpperCase()))
+  // console.log(eventFilters);
+  return eventFilters
+}

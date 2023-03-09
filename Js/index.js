@@ -449,32 +449,37 @@ const listEvents = {
         }
     ]
 }
+// cards
+const data = listEvents.events
+
+const cardContainer = document.getElementById("new-cards")
 
 function createCards(arraydata) {
     let cards = ''
-    for (const newEvent of arraydata) {
-        cards += `<div class="card" style="width: 18rem;">
+    if (arraydata.length != 0) {
+        for (const newEvent of arraydata) {
+            cards += `<div class="card my=2 mx=2" style="width: 18rem;">
         <img src="${newEvent.image}"..." height="150">
         <div class="card-body">
           <h5 class="card-title text-center">${newEvent.name}</h5>
           <p class="card-text">${newEvent.description}</p>
           <div class="row">
             <p class="col text-center my-0">price:$${newEvent.price}</p>
-            <a href="./details.html" class="btn btn-secondary col">More Info</a>
+            <a href="./details.html?id=${newEvent._id}" class="btn btn-secondary col">More Info</a>
           </div>
         </div>
       </div>
     `  }
+        return cards
+    }
+    else return '<img src="./assets/noEncontrado.png" alt="" id="img-noencontrado1">'
 
-    return cards
 }
-
-let elementscard = createCards(listEvents.events)
-
-const cardContainer = document.getElementById("new-cards")
-
+let elementscard = createCards(data)
 cardContainer.innerHTML = elementscard
+console.log(elementscard)
 
+// Category
 
 function createCategory(arraydata) {
     let categories = ''
@@ -482,15 +487,35 @@ function createCategory(arraydata) {
         if (!categories.includes(eventcategory.category)) {
             categories += `<div class= "col-6 col-md-4 col-lg-2 col-xl-2">
             <label for="category1">
-              <input type="checkbox" name="category" id="category1" value:"${eventcategory.category}" class="mx1">${eventcategory.category}</label>
+              <input type="checkbox" name="category" id="myCheck" value:"${eventcategory.category}" class="mx1">
+              <span>${eventcategory.category}</span></label>
           </div>`
         }
-        })
-        return categories
-    }
-let categoriesSeccion =  createCategory(listEvents.events)
+    })
+    return categories
+}
+let categoriesSeccion = createCategory(data)
 const categoryContainer = document.getElementById("container-category")
-categoryContainer.innerHTML = categoriesSeccion 
+categoryContainer.innerHTML = categoriesSeccion
+
+// const arrayCategory = listEvents.events.filter(x => x)
+// console.log(arrayCategory)
 
 
-addEventListener(change)
+
+// Search
+
+const mySearch = document.getElementById("my-Search")
+mySearch.addEventListener("input", () => {
+    let arrayFilter = filterEvents(data, mySearch.value)
+
+    cardContainer.innerHTML = createCards(arrayFilter)
+
+    // console.log(createCards(arrayFilter));
+})
+
+function filterEvents(arraydata, dataFilter) {
+    let eventFilters = arraydata.filter((event) => event.name.toUpperCase().includes(dataFilter.toUpperCase()))
+    // console.log(eventFilters);
+    return eventFilters
+}

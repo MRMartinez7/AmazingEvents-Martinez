@@ -449,31 +449,57 @@ const listEvents = {
     }
   ]
 }
-
-function createCards(arraydata) {
-  let cards = ''
-  for (const nextEvents of arraydata) {
-    let currentDate = new Date(listEvents.currentDate);
-    let eventDate = new Date(nextEvents.date);
-    if (eventDate >= currentDate) {
-      cards += `<div class="card" style="width: 18rem;">
-        <img src="${nextEvents.image}"..." height="150">
-        <div class="card-body">
-          <h5 class="card-title text-center">${nextEvents.name}</h5>
-          <p class="card-text">${nextEvents.description}</p>
-          <div class="row">
-            <p class="col text-center my-0">price:$${nextEvents.price}</p>
-            <a href="./details.html" class="btn btn-secondary col">More Info</a>
-          </div>
-        </div>
-      </div>
-    `  }
-  }
-  return cards
+function createCategory(arraydata) {
+  let categories = ''
+  arraydata.forEach(eventcategory => {
+    if (!categories.includes(eventcategory.category)) {
+      categories += `<div class= "col-6 col-md-4 col-lg-2 col-xl-2">
+          <label for="category1">
+            <input type="checkbox" name="category" id="category1" value:"${eventcategory.category.toLowerCase()}" class="box mx1">
+            <span>${eventcategory.category}</span></label>
+        </div>`
+    }
+  })
+  return categories
 }
+let categoriesSeccion = createCategory(listEvents.events)
+const categoryContainer = document.getElementById("container-category")
+categoryContainer.innerHTML = categoriesSeccion
 
-let elementscard = createCards(listEvents.events)
 
-const cardContainer = document.getElementById("upcoming-cards")
+console.log([document])
+const queryString = location.search
+console.log(document.location.search)
 
-cardContainer.innerHTML = elementscard
+const params = new URLSearchParams(queryString)
+console.log(params)
+
+const id = params.get('id')
+
+console.log(params.get('id'))
+
+
+console.log(listEvents.events.find(card => card._id == id))
+const cardDetail = listEvents.events.find(card => card._id == id)
+
+
+const cardCont = document.getElementById("cards-details")
+console.log(cardCont)
+
+cardCont.innerHTML = `<div class="col-12 col-sm-6 col-md-4">
+<img src="${cardDetail.image}" alt="${cardDetail.image}" width="250" height="150">
+</div>
+<div class="col-12 col-sm-6 col-md-8">
+<h3>Name: ${cardDetail.name}</h3>
+<p>date: ${cardDetail.date}</p>
+<p>${cardDetail.description}</p>
+<p>category: ${cardDetail.category}</p>
+<p>capacity: ${cardDetail.capacity}</p>
+<p>assistance for estimate: ${cardDetail.estimate}</p>
+<p>price: ${cardDetail.price}</p>
+<a href="./index.html" class="btn btn-secondary col">Encontrar mas eventos</a>
+</div>
+`
+console.log([document])
+
+
