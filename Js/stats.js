@@ -29,11 +29,11 @@ let Eventslargecapacity = arrayassistance.sort((a, b) => (b.capacity) - (a.capac
 top3maxcapacity = Eventslargecapacity.slice(0, 3);
 // console.log(top3maxcapacity)
 
-const EventsEstatistics = document.getElementById("table-container1")
+let EventsEstatistics = document.getElementById("table-container1")
 EventsEstatistics.innerHTML = `<tr>
-<td>Events with the highest percentage of attendance</td>
-<td>Events with the lowest percentage of attendance</td>
-<td>Events with large capacity</td>
+<td><strong>Events with the highest percentage of attendance</strong></td>
+<td><strong>Events with the lowest percentage of attendance</strong></td>
+<td><strong>Events with large capacity</strong></td>
 </tr>
 <tr>
 <td>${top3maxpercentage[0].name}: ${top3maxpercentage[0].percentage.toFixed(2)}%</td>
