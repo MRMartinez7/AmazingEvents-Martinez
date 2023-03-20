@@ -37,6 +37,7 @@ let categoryOfEvent = categoriesFilter.reduce((category, event) => {
    }
    return category;
  }, []);
+ console.log(categoryOfEvent);
      //search 
      let listener = ""
      search.addEventListener("input", (listen) => {

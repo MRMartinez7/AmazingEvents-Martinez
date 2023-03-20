@@ -5,7 +5,7 @@ async function getdata() {
     localStorage.setItem("data", JSON.stringify(datas));
   }
   getdata();
-  let datas= localStorage.getItem("data");
+  let datas = localStorage.getItem("data");
   // console.log(datas);
   datas = JSON.parse(datas);
 
