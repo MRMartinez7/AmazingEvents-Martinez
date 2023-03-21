@@ -10,10 +10,70 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="./style/style.css">
   <link rel="shortcut icon" href="./assets/favicon-AmazingEvents.ico" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Lilita+One&family=Satisfy&display=swap');
+  </style>
 </head>
 
 <body>
-  <nav class="bg-black">
+  <nav class="navbar bg-body-black">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./Index.html">
+        <img src="./assets/Logo-Amazing-Events.png" alt="Logo" width="100">
+    </a>
+        <ul class="nav justify-content-end" id="navul">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./Index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./upcoming.html">Uncoming Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Past Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./contact.html">contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./stats.html">stats</a>
+            </li>
+        </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><strong>Amazing Events</strong></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/Logo-Amazing-Events.png" alt="Logo" width="100">
+                </a>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./Index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./upcoming.html">Uncoming Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Past Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./stats.html">stats</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+  <!-- <nav class="bg-black">
     <nav class="navbar">
       <div class="container object-fit: cover">
         <a class="navbar-brand" href="./Index.html">
@@ -38,11 +98,11 @@
         </ul>
       </div>
     </nav>
-  </nav>
+  </nav> -->
   <section>
     <div class="row g-0 container-subtitle pb-3 pt-3 bg-body-tertiary" style="border: solid 1px black;">
       <div class="col-1 text-center" style="font-weight: bold;">&#60;</div>
-      <div class="col-10 text-center" style="font-weight: bold;">
+      <div class="col-10 text-center"style="font-family: 'Lilita One', cursive;">
         <h3>Past Events</h3>
       </div>
       <div class="col-1 text-center" style="font-weight: bold;">></div>
